@@ -8,18 +8,13 @@ namespace industry
 {
     class Warehouse 
     {
-        
 
         //Why i cant make instance from Other classes here ??? 
         public List<int> Glass { get; set; } = new List<int>();
         public List<int> Wood { get; set; } = new List<int>();
         public List<int> Rubber { get; set; } = new List<int>();
         public List<int> Metal { get; set; } = new List<int>();
-
-        public List<int> metaltest = new List<int>() { 1,1,1 };
-
-
-      
+     
         //Products
 
         public List<int> Wheel { get; set; } = new List<int>();   // A wheel need 2 Rubbers
@@ -47,8 +42,7 @@ namespace industry
             }
             Console.WriteLine($" ({2 * carOrder.Count}) Metal Had Been Sent");
         }
-
-       
+     
         //Sending items to Wheels Industry
         public void RubberToWheelsIndustry(List<int> Calc) //this param should be int because warehouse employee will control 
         {
@@ -64,77 +58,7 @@ namespace industry
             Console.WriteLine($"({8 * Calc.Count}) Rubbers had been sent to wheel factory!");
             Console.ReadKey();
         }
-
-        //wheelsProduction working in this class but wont in WheelIndustry LOL 
-        //public void WheelsProduction(List<int> carOrder, int order, int quantity)
-        //{
-        //    if (RubbersToWheels.Count < 2)
-        //    {
-        //        if (Rubber.Count >= 2 && Wheel.Count < 1)
-        //        {
-        //            Console.WriteLine("Calling warehouse Ring Ring... Ring Ring...");
-        //            //i can calculate how much rubbers i need to fullfill order or warehouse employee can send more
-        //            Console.WriteLine($"Hi warehouse i see ({Rubber.Count}) Rubbers please send ({8 * carOrder.Count}) to complete the order #{order}");
-        //        }
-        //        else
-        //        {
-        //            Console.WriteLine("we have wheels"); 
-        //        }
-        //        Console.ReadKey(true);
-        //    }
-
-        //    else
-        //    {
-        //        Console.Clear();
-        //        for (int j = 0; j < quantity; j++)
-        //        {
-        //            if (RubbersToWheels.Count >= 2)
-        //            {
-        //                Console.WriteLine("Processing Wheels");
-        //                Console.WriteLine("Wheel had been produced and sent to warehouse");
-        //                RubbersToWheels.Remove(1);
-        //                RubbersToWheels.Remove(1);
-        //                Wheel.Add(1); //send to warehouse
-
-        //            }
-        //            else
-        //            {
-        //                Console.WriteLine("WheelsIndustry inventory Does Not have enough raw material");
-        //            }
-        //        }
-        //    }
-        //}
-
-        //public void CarProduction(List<int> carOrder)
-        //{
-        //    for (int i = 0; i < carOrder.Count; i++)
-        //    {
-        //        if (MetalFromWarehouse.Count >= (2 * carOrder.Count) && Wheel.Count >= (4 * carOrder.Count))
-        //        {
-        //            Car.Add(1);
-        //            MetalFromWarehouse.Remove(2);
-        //            Wheel.Remove(4);
-        //            Console.WriteLine($"{carOrder.Count} car/s had been produced!");
-        //            carOrder.Remove(1);
-        //        }
-
-        //    }
-
-
-        //    if (Wheel.Count < (4 * carOrder.Count))
-        //    {
-
-        //        Console.WriteLine($"we are missing Wheels to produce a Car! Contact warehouse to send {(8 * carOrder.Count) - Wheel.Count} Rubbers to Wheels Factory!");
-        //        Console.WriteLine("Sending...");
-        //    }
-
-        //    if (MetalFromWarehouse.Count < (2 * carOrder.Count))
-        //    {
-        //        Console.WriteLine($"we are missing Metal to produce a Car! Contact warehouse to send {(2 * carOrder.Count) - MetalFromWarehouse.Count} Metal to Car Factory!");
-        //        Console.WriteLine("Sending...");
-        //    }
-        //}
-
+      
         public void CheckingInventories(List<int> carOrder, int order, bool process)
         {
             //What happen if warehouse employee sent more Rubber than order need? will you keep it in WheelsIndustry inventory 

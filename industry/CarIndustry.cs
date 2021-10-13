@@ -6,47 +6,47 @@ using System.Threading.Tasks;
 
 namespace industry
 {
-    class CarIndustry : Warehouse
+    class CarIndustry
     {
-
-        public void test()
+     
+        
+        public List<int> Ewheel { get; set; }
+        public List<int> IMetalFromWarehouse { get; set; }
+      
+        public CarIndustry(List<int> wheel, List<int> metalfromwarehouse)
         {
-
-            for (int i = 0; i < metaltest.Count; i++)
-            {
-                Console.WriteLine(i);
-            }
+            Ewheel = wheel;
+            IMetalFromWarehouse = metalfromwarehouse;
         }
 
-        //public  void CarProduction(List<int> carOrder)
-        //{
-        //    for (int i = 0; i < carOrder.Count; i++)
-        //    {
-        //        if (MetalFromWarehouse.Count >= (2 * carOrder.Count) && Wheel.Count >= (4 * carOrder.Count))
-        //        {
-        //            Car.Add(1);
-        //            MetalFromWarehouse.Remove(2);
-        //            Wheel.Remove(4);
-        //            Console.WriteLine($"{carOrder.Count} car/s had been produced!");
-        //            carOrder.Remove(1);
+        public void CarProduction(List<int> carOrder)
+        {
+            for (int i = 0; i < carOrder.Count; i++)
+            {
+                if (IMetalFromWarehouse.Count >= (2 * carOrder.Count) && Ewheel.Count >= (4 * carOrder.Count))
+                {
+                    //Car.Add(1);
+                    IMetalFromWarehouse.Remove(2);
+                    Ewheel.Remove(4);
+                    Console.WriteLine($"{carOrder.Count} car/s had been produced!");
+                    carOrder.Remove(1);
 
-        //        }
-        //    }
+                }
+            }
 
+            if (Ewheel.Count < (4 * carOrder.Count))
+            {
 
-        //    if (Wheel.Count < (4 * carOrder.Count))
-        //    {
+                Console.WriteLine($"we are missing Wheels to produce a Car! Contact warehouse to send {(8 * carOrder.Count) - Ewheel.Count} Rubbers to Wheels Factory!");
+                Console.WriteLine("Sending...");
+            }
 
-        //        Console.WriteLine($"we are missing Wheels to produce a Car! Contact warehouse to send {(8 * carOrder.Count) - Wheel.Count} Rubbers to Wheels Factory!");
-        //        Console.WriteLine("Sending...");
-        //    }
-
-        //    if (MetalFromWarehouse.Count < (2 * carOrder.Count))
-        //    {
-        //        Console.WriteLine($"we are missing Metal to produce a Car! Contact warehouse to send {(2 * carOrder.Count) - MetalFromWarehouse.Count} Metal to Car Factory!");
-        //        Console.WriteLine("Sending...");
-        //    }
-        //}
+            if (IMetalFromWarehouse.Count < (2 * carOrder.Count))
+            {
+                Console.WriteLine($"we are missing Metal to produce a Car! Contact warehouse to send {(2 * carOrder.Count) - IMetalFromWarehouse.Count} Metal to Car Factory!");
+                Console.WriteLine("Sending...");
+            }
+        }
 
 
     }

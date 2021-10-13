@@ -12,8 +12,8 @@ var amount = 0;
 
 //other classes instance 
 Warehouse warehouse = new Warehouse();
-CarIndustry carIndustry = new CarIndustry();
-WheelsIndustry wheelsIndustry = new WheelsIndustry();
+CarIndustry carIndustry = new CarIndustry(warehouse.Wheel, warehouse.MetalFromWarehouse);
+WheelsIndustry wheelsIndustry = new WheelsIndustry(warehouse.RubbersToWheels, warehouse.Wheel);
 
 //RubberIndustry rubber = new RubberIndustry();
 
@@ -120,8 +120,8 @@ while (isRunning)
                 case 1: //For now i will send order quantity and do some calc but in next version i will make it also to send static number 
 
 
-                    //carIndustry.CarProduction(CarOrder);
-                    carIndustry.test();
+                    carIndustry.CarProduction(CarOrder);
+                    
                     warehouse.CheckingInventories(CarOrder, orderNumber, processing);
 
                     Console.WriteLine("\n\n1. Sending Metal to Car Factory");

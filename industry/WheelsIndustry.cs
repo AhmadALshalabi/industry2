@@ -10,17 +10,25 @@ namespace industry
 
 
 
-    class WheelsIndustry : Warehouse
+    class WheelsIndustry
     {
+        public List<int> ERubber { get; set; }
+        public List<int> EWheel { get; set; }
+
+        public WheelsIndustry(List<int> r , List<int> w)
+        {
+            ERubber = r;
+            EWheel = w;
+        }
         public void WheelsProduction(List<int> carOrder, int order, int quantity)
         {
-            if (RubbersToWheels.Count < 2)
+            if (ERubber.Count < 2)
             {
-                if (Rubber.Count >= 2 && Wheel.Count < 1)
+                if (ERubber.Count >= 2 && EWheel.Count < 1)
                 {
                     Console.WriteLine("Calling warehouse Ring Ring... Ring Ring...");
                     //i can calculate how much rubbers i need to fullfill order or warehouse employee can send more
-                    Console.WriteLine($"Hi warehouse i see ({Rubber.Count}) Rubbers please send ({8 * carOrder.Count}) to complete the order #{order}");
+                    Console.WriteLine($"Hi warehouse i see ({ERubber.Count}) Rubbers please send ({8 * carOrder.Count}) to complete the order #{order}");
                 }
                 else
                 {
@@ -34,13 +42,13 @@ namespace industry
                 Console.Clear();
                 for (int j = 0; j < quantity; j++)
                 {
-                    if (RubbersToWheels.Count >= 2)
+                    if (ERubber.Count >= 2)
                     {
                         Console.WriteLine("Processing Wheels");
                         Console.WriteLine("Wheel had been produced and sent to warehouse");
-                        RubbersToWheels.Remove(1);
-                        RubbersToWheels.Remove(1);
-                        Wheel.Add(1); //send to warehouse
+                        ERubber.Remove(1);
+                        ERubber.Remove(1);
+                        EWheel.Add(1); //send to warehouse
 
                     }
                     else
